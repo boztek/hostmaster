@@ -1,0 +1,7 @@
+name = Client UI
+description = Interface to manage Aegir clients.
+package = Hosting
+dependencies[] = hosting_client
+dependencies[] = views
+
+core = 6.x

@@ -1,15 +1,16 @@
 <?php
+
 /**
  * Implementation of hook_views_default_views().
  */
-function hosting_client_views_default_views() {
+function hosting_client_ui_views_default_views() {
   /*
-   * View 'hosting_client_client_list'
+   * View 'hosting_client_ui_listing'
    */
   $view = new view;
-  $view->name = 'hosting_client_client_list';
-  $view->description = 'List of clients';
-  $view->tag = '';
+  $view->name = 'hosting_client_ui_listing';
+  $view->description = 'Listing of clients.';
+  $view->tag = 'client';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -146,27 +147,6 @@ function hosting_client_views_default_views() {
   ));
   $handler->override_option('title', 'Clients');
   $handler->override_option('style_plugin', 'table');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-    'override' => 1,
-    'sticky' => 0,
-    'order' => 'asc',
-    'columns' => array(
-      'email' => 'email',
-      'name' => 'name',
-    ),
-    'info' => array(
-      'email' => array(
-        'sortable' => 0,
-        'separator' => '',
-      ),
-      'name' => array(
-        'sortable' => 0,
-        'separator' => '',
-      ),
-    ),
-    'default' => '-1',
-  ));
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'clients');
   $handler->override_option('menu', array(
@@ -187,5 +167,3 @@ function hosting_client_views_default_views() {
 
   return $views;
 }
-
-
